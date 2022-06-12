@@ -27,3 +27,26 @@
 //   ------------------------------------------------
 // Day 1 Problem:
 // Loop over an array and return indicies of numbers that add up to target number
+
+const twoSum = (nums, target) => {
+    let resultArr = []
+    let firstNumber = 0
+    let secondNumber = 0
+    for (let i = 0; i < nums.length; i++) {
+        console.log('i is', nums[i])
+        for (let t = 1; t < nums.length; t++) {
+            if (nums[i] + nums[t] === target) {
+                firstNumber = nums[i]
+                secondNumber = nums[t]
+                resultArr.push(nums.indexOf(firstNumber))
+                resultArr.push(nums.indexOf(secondNumber))
+            } else {
+                console.log('broken')
+            }
+        }
+    }
+
+    return resultArr
+}
+
+console.log(twoSum([3, 3], 6))
