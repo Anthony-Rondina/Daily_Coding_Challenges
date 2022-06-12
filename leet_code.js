@@ -35,18 +35,17 @@ const twoSum = (nums, target) => {
     for (let i = 0; i < nums.length; i++) {
         console.log('i is', nums[i])
         for (let t = 1; t < nums.length; t++) {
-            if (nums[i] + nums[t] === target) {
-                firstNumber = nums[i]
-                secondNumber = nums[t]
-                resultArr.push(nums.indexOf(firstNumber))
-                resultArr.push(nums.indexOf(secondNumber))
+            console.log("nums i is", nums[i])
+            console.log("nums t is", nums[t])
+            if (nums[i] + nums[t] == target) {
+                resultArr.push(nums.indexOf(nums[i]))
+                resultArr.push(nums.indexOf(nums[t]))
+                return resultArr
             } else {
                 console.log('broken')
             }
         }
     }
-
-    return resultArr
 }
 
 console.log(twoSum([3, 3], 6))
