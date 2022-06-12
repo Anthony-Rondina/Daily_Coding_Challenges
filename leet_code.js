@@ -25,3 +25,5 @@ const maximumWealth = (arr) => {
 
 
 //   ------------------------------------------------
+// Day 1 Problem:
+// Loop over an array and return indicies of numbers that add up to target number
