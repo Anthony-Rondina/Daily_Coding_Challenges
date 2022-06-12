@@ -33,19 +33,16 @@ const twoSum = (nums, target) => {
     let firstNumber = 0
     let secondNumber = 0
     for (let i = 0; i < nums.length; i++) {
-        console.log('i is', nums[i])
         for (let t = 1; t < nums.length; t++) {
-            console.log("nums i is", nums[i])
-            console.log("nums t is", nums[t])
             if (nums[i] + nums[t] == target) {
                 resultArr.push(nums.indexOf(nums[i]))
-                resultArr.push(nums.indexOf(nums[t]))
+                resultArr.push(nums.indexOf(nums[t], 1))
                 return resultArr
             } else {
-                console.log('broken')
+                console.log('error')
             }
         }
     }
 }
 
-console.log(twoSum([3, 3], 6))
+console.log(twoSum([2, 1, 4, 5, 3, 3], 6))
