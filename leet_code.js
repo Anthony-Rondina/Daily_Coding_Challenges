@@ -47,4 +47,15 @@
 
 //   ------------------------------------------------
 // Day 3 Problem:
-// 
+// Given an integer, return if the number is a palidrome
+
+const isPalindrome = (input) => {
+    let palCheck = input.toString().split('').reverse().join('')
+    if (input == palCheck) {
+        return true
+    } else {
+        return false
+    }
+}
+
+console.log(isPalindrome(-121))
