@@ -1,4 +1,4 @@
-// Day 1 Problem:
+// Day 0 Problem:
 // Loop over an array of bank accounts and find the total of each account and return the account with the highest Number.
 
 // const maximumWealth = (arr) => {
@@ -25,7 +25,7 @@
 
 
 //   ------------------------------------------------
-// Day 2 Problem:
+// Day 1 Problem:
 // Loop over an array and return indicies of numbers that add up to target number
 
 // const twoSum = (nums, target) => {
@@ -46,16 +46,20 @@
 // console.log(twoSum([1, 3, 4, 2], 6))
 
 //   ------------------------------------------------
-// Day 3 Problem:
+// Day 2 Problem:
 // Given an integer, return if the number is a palidrome
 
-const isPalindrome = (input) => {
-    let palCheck = input.toString().split('').reverse().join('')
-    if (input == palCheck) {
-        return true
-    } else {
-        return false
-    }
-}
+// const isPalindrome = (input) => {
+//     let palCheck = input.toString().split('').reverse().join('')
+//     if (input == palCheck) {
+//         return true
+//     } else {
+//         return false
+//     }
+// }
 
-console.log(isPalindrome(-121))
+// console.log(isPalindrome(121))
+
+//   ------------------------------------------------
+// Day 3 Problem:
+// 
