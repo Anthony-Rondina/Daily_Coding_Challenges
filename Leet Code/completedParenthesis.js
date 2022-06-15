@@ -3,19 +3,28 @@
 
 
 var isValid = function (s) {
-    const options = [{ symbol: "(", match: ")" }, { symbol: ")", match: "(" }, { symbol: "{", match: "}" }, { symbol: "}", match: "{" }, { symbol: "[", match: "]" }, { symbol: "]", match: "[" },]
-    let string = s.split('')
+    const options = {
+        "}": "{",
+        "]": "[",
+        ")": "(",
+    }
     let result = true
-    console.log(string)
-    for (let i = 0; i < string.length; i++) {
-        if (string[i + 1] !== options[i].match) {
-            result = false
+    if (s.length % 2 !== 0) {
+        return false
+    }
+    let collection = []
+    const checkForOpenBracket = Object.values(options)
+
+    for (let i = 0; i < s.length; i++) {
+        if (checkForOpenBracket.includes(s[i])) {
+            collection.push(s[i])
         } else {
-            console.log("pass")
-            i++
+            const mustMatch = collection.pop()
+            if (mustMatch !== options[s[i]]) {
+                return false
+            }
         }
         return result
-    }
-};
-
-console.log(isValid("(]"))
+    };
+}
+console.log(isValid("{[]}"))
