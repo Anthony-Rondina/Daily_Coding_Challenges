@@ -3,26 +3,23 @@
 
 
 const isValid = (s) => {
-    const options = {
-        "}": "{",
-        "]": "[",
-        ")": "(",
-    }
+    const options = Object.freeze({
+        "(": ")",
+        "{": "}",
+        "[": "]"
+    });
     let result = true
     if (s.length % 2 !== 0) {
         return false
     }
     let collection = []
-    const checkForOpenBracket = Object.values(options)
 
     for (let i = 0; i < s.length; i++) {
-        if (checkForOpenBracket.includes(s[i])) {
-            collection.push(s[i])
-        } else {
-            const mustMatch = collection.pop()
-            if (mustMatch !== options[s[i]]) {
-                return false
-            }
+        let character = s[i]
+        if (character in options) {
+            collection.push(character)
+        } else if (character != options[collection.pop()]) {
+            return false;
         }
         return result
     };
