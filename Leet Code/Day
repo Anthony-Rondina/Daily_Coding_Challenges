@@ -1,0 +1,17 @@
+// Day 4 Problem:
+// Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+
+
+var isValid = function (s) {
+    const options = [{ symbol: "(", match: ")" }, { symbol: ")", match: "(" }, { symbol: "{", match: "}" }, { symbol: "}", match: "{" }, { symbol: "[", match: "]" }, { symbol: "]", match: "[" },]
+    let string = s.split('')
+
+    for (let i = 0; i < string.length; i++) {
+        if (options[i + 1].symbol !== options[string[i].match) {
+            return false
+        } else {
+            console.log(pass)
+        }
+
+    }
+};
