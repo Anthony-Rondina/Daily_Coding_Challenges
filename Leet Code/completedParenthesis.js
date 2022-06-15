@@ -3,25 +3,27 @@
 
 
 const isValid = (s) => {
+
     const options = Object.freeze({
         "(": ")",
         "{": "}",
         "[": "]"
     });
-    let result = true
-    if (s.length % 2 !== 0) {
-        return false
-    }
-    let collection = []
 
+    const collection = [];
+    if (s.length == 0 || s.length % 2 != 0) {
+        return false;
+    }
     for (let i = 0; i < s.length; i++) {
         let character = s[i]
         if (character in options) {
-            collection.push(character)
+            collection.push(character);
         } else if (character != options[collection.pop()]) {
             return false;
         }
-        return result
-    };
+    }
+
+    return collection.length == 0;
+
 }
-console.log(isValid("{[]}"))
+console.log(isValid("(]"))
