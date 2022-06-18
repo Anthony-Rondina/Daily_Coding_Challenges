@@ -1,0 +1,18 @@
+// Write a function to find the longest common prefix string amongst an array of strings.
+
+// If there is no common prefix, return an empty string "".
+
+/**
+ * @param {string[]} strs
+ * @return {string}
+ */
+//ideas:
+//loop through each letter in the array and as long as one word matches the same letter then keep going
+//if not then return what you found
+var longestCommonPrefix = function (strs) {
+    for (let i = 0; i < strs.length; i++) {
+        let check = strs[0]
+    }
+
+
+};
