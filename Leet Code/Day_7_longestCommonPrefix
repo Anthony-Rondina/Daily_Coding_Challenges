@@ -16,27 +16,29 @@ var longestCommonPrefix = function (strs) {
     let word = strs.reduce(function (a, b) {
         return a.length <= b.length ? a : b;
     })
-    console.log(`Shortest word is ${word}`)
+    // console.log(`Shortest word is ${word}`)
     for (let i = 0; i < word.length; i++) {
-        console.log(`pass ${i}`)
+        // console.log(`pass ${i}`)
         letter = ''
         let pass = true
         for (let j = 0; j < strs.length; j++) {
             let check = strs[j][i]
-            console.log(`line 24 check is ${check}`)
-            console.log(`line 25 checked letter is ${word[i]}`)
+            // console.log(`line 24 check is ${check}`)
+            // console.log(`line 25 checked letter is ${word[i]}`)
             if (word[i] == check) {
                 letter = check
-                console.log(`pushed ${check} to ${result}`)
+                // console.log(`pushed ${check} to ${result}`)
             } else {
                 pass = false
             }
         }
         if (pass) {
             result += letter
+        } else {
+            return result
         }
     }
     return result
 };
 
-longestCommonPrefix(["danger", "william", "pasture"])
+console.log(longestCommonPrefix(["cir", "car"]))
