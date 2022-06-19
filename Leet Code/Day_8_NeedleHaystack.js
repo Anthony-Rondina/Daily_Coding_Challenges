@@ -12,8 +12,6 @@ const strStr = (haystack, needle) => {
     if (needle == "") {
         return 0
     }
-    let checkLetter = needle.split('')[0]
-    let checkWord = haystack.split('')
     if (haystack.includes(needle)) {
         return haystack.indexOf(needle)
     } else {
