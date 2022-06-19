@@ -13,7 +13,12 @@ const strStr = (haystack, needle) => {
         return 0
     }
     let checkLetter = needle.split('')[0]
-    console.log(checkLetter)
-};
-
-strStr("hello", "ll")
+    let checkWord = haystack.split('')
+    if (haystack.includes(needle)) {
+        return haystack.indexOf(needle)
+    } else {
+        return -1
+    }
+}
+console.log(strStr("a",
+    "a"))
