@@ -7,7 +7,7 @@ const singleNumber = (nums) => {
     let freq = {}
     //Loop through array
     for (let i = 0; i < nums.length; i++) {
-        //set my focused character's as the current item in array
+        //set my focused character as the current item in array
         let character = nums[i];
         //If the item currently exists in my frequency counter object then increase it's value by 1
         if (freq[character]) {
