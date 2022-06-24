@@ -7,12 +7,17 @@
 // Do not allocate extra space for another array. You must do this by modifying the input array in-place with O(1) extra memory.
 
 const removeDuplicates = (nums) => {
+    //create loop to iterate through array
     for (let i = 0; i < nums.length - 1; i++) {
+        //Check if current item in array matches the next item in array
         if (nums[i] == nums[i + 1]) {
+            //Remove current item in array
             nums.splice(i, 1)
+            //VERY IMPORTANT! Since item has been removed, start the loop over again on the same index of array
             i = i - 1
         }
     }
+    //For answer: setting k to display length of array and return along with fixed nums array
     let k = nums.length
     return { k, nums }
 };
