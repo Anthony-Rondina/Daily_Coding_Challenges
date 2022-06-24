@@ -7,5 +7,14 @@
 // Do not allocate extra space for another array. You must do this by modifying the input array in-place with O(1) extra memory.
 
 const removeDuplicates = (nums) => {
-
+    for (let i = 0; i < nums.length - 1; i++) {
+        if (nums[i] == nums[i + 1]) {
+            nums.splice(i, 1)
+            i = i - 1
+        }
+    }
+    let k = nums.length
+    return { k, nums }
 };
+
+console.log(removeDuplicates([0, 0, 1, 1, 1, 2, 2, 3, 3, 4]))
