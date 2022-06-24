@@ -3,11 +3,11 @@
 // You must implement a solution with a linear runtime complexity and use only constant extra space.
 
 const singleNumber = (nums) => {
-    //starting a frequency counter object
+    //Starting a frequency counter object
     let freq = {}
     //Loop through array
     for (let i = 0; i < nums.length; i++) {
-        //set my focused character as the current item in array
+        //Set my focused character as the current item in array
         let character = nums[i];
         //If the item currently exists in my frequency counter object then increase it's value by 1
         if (freq[character]) {
@@ -18,7 +18,7 @@ const singleNumber = (nums) => {
         }
     }
 
-    //look through the keys in the frequency counter object and return the key who's value is 1
+    //Look through the keys in the frequency counter object and return the key who's value is 1
     return Object.keys(freq).find(key => freq[key] === 1)
 }
 
