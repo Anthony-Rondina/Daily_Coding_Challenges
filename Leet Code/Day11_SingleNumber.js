@@ -17,7 +17,7 @@ const singleNumber = (nums) => {
             freq[character] = 1;
         }
     }
-
+    console.log(freq)
     //Look through the keys in the frequency counter object and return the key who's value is 1
     return Object.keys(freq).find(key => freq[key] === 1)
 }
