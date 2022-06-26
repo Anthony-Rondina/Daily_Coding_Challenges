@@ -3,59 +3,48 @@
 // Each letter in magazine can only be used once in ransomNote.
 
 const canConstruct = (ransomNote, magazine) => {
-    let note = ransomNote.split('').sort()
-    let mag = magazine.split('').sort()
-    let longest = ''
-    if (note.length > mag.length) {
-        longest = note.length
-    } else {
-        longest = mag.length
+    //Created arrays from inputs
+    let mag = Array.from(magazine, String);
+    let note = Array.from(ransomNote, String);
+    //Create new map as frequency counter
+    let map = new Map();
+
+    //looping through note array to count how many times a letter is in note  
+    for (let x of note) {
+        //if the freq counter map has x...
+        if (map.has(x)) {
+            //set the map key of x with the value of what x currently has +1
+            map.set(x, map.get(x) + 1);
+        }
+        else {
+            //else, set X to the map with a value of 1
+            map.set(x, 1);
+        }
     }
 
-    let freq = {}
-    let freq2 = {}
-    for (let i = 0; i < longest; i++) {
-        let noteChar = note[i];
-        let magChar = mag[i];
-        if (noteChar) {
-            if (freq[noteChar]) {
-                freq[noteChar]++;
-            } else {
-                //If it does not exist in the frequency counter object then initialize it with a value of 1
-                freq[noteChar] = 1;
-            }
+    //looping through note array to subtract from map if a letter exists in mag
+    for (let x of note) {
+        //if mag array includes current letter in note
+        if (mag.includes(x)) {
+            //remove current letter of note from first appearance in mag
+            mag.splice(mag.indexOf(x), 1);
+            //set maps value for current letter to be minus 1
+            map.set(x, map.get(x) - 1);
         }
-        if (magChar) {
-            if (freq2[magChar]) {
-                freq2[magChar]++;
-            } else {
-                //If it does not exist in the frequency counter object then initialize it with a value of 1
-                freq2[magChar] = 1;
-            }
-        }
-
-    }
-    // console.log("freq is", freq, "freq2 is", freq2
-    // )
-    for (let i = 0; i < Object.keys(freq).length; i++) {
-        // console.log(`first is ${Object.keys(freq)[i]} Second is ${Object.keys(freq2)[i]}`)
-        if (Object.keys(freq)[i] !== Object.keys(freq2)[i]) {
-            let key = Object.keys(freq2)[i]
-            delete freq2[key]
-            i--
+        else {
+            //if current letter in note doesnt exist in mag then return false
+            return false;
         }
     }
-    // console.log("NEXT PASS", "freq is", freq, "freq2 is", freq2
-    // )
-    for (let i = 0; i < Object.keys(freq).length; i++) {
-        // console.log(Object.values(freq)[i])
-        if (Object.values(freq)[i] == Object.values(freq2)[i] && Object.keys(freq)[i] == Object.keys(freq2)[i]) {
-            // console.log(`letter matches`)
-        } else {
-            return false
+    // console.log(map)
+    //check map if all letters have a value of 0
+    for (let [v] of map) {
+        //If a letter has a greater value than 0 it means not enough letters could not be found in mag
+        if (v > 0) {
+            return false;
         }
     }
-    return true
+    return true;
 }
 
 console.log(canConstruct("bg",
