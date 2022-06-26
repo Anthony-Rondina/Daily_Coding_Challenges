@@ -3,37 +3,14 @@
 // If there are fewer than k characters left, reverse all of them. If there are less than 2k but greater than or equal to k characters, then reverse the first k characters and leave the other as original.
 
 const reverseStr = (s, k) => {
-    let arr = s.split('')
-    let reverse = []
-    if (s.length < k) {
-        return s.split('').reverse().join('')
+    if (s.length < k)
+        return s.split("").reverse().join("");
+    let res = "";
+    for (let i = 0; i < s.length; i += 2 * k) {
+        res += s.split("").slice(i, i + k).reverse().join("");
+        res += s.slice(i + k, i + 2 * k);
     }
-    if (s.length < 2000 && s.length >= k) {
-        for (let i = 0; i < k; i++) {
-            let letter = arr[i]
-            reverse.push(letter)
-        }
-
-        for (let i = 0; i < k; i++) {
-            arr.shift()
-        }
-        arr.join('')
-        reverse.reverse().join('')
-        let result = reverse.concat(arr).join('')
-        return result
-    }
-    for (let i = 0; i < k; i++) {
-        let letter = arr[i]
-        reverse.push(letter)
-    }
-
-    for (let i = 0; i < k; i++) {
-        arr.shift()
-    }
-    arr.join('')
-    reverse.reverse().join('')
-    let result = reverse.concat(arr).join('')
-    return result.join('')
+    return res;
 };
 
 console.log(reverseStr("abcdefg",
