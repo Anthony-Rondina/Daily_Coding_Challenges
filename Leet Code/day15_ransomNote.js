@@ -4,13 +4,48 @@
 
 const canConstruct = (ransomNote, magazine) => {
     let note = ransomNote.split('')
-    let mag = magazine.spilt('')
-    for (let i = 0; i < ransomNote.length; i++) {
-        if (note[i] !== mag[i]) {
+    let mag = magazine.split('')
+    let longest = ''
+    if (note.length > mag.length) {
+        longest = note.length
+    } else {
+        longest = mag.length
+    }
+
+    let freq = {}
+    let freq2 = {}
+    for (let i = 0; i < longest; i++) {
+        let noteChar = note[i];
+        let magChar = mag[i];
+        if (noteChar) {
+            if (freq[noteChar]) {
+                freq[noteChar]++;
+            } else {
+                //If it does not exist in the frequency counter object then initialize it with a value of 1
+                freq[noteChar] = 1;
+            }
+        }
+        if (magChar) {
+            if (freq2[magChar]) {
+                freq2[magChar]++;
+            } else {
+                //If it does not exist in the frequency counter object then initialize it with a value of 1
+                freq2[magChar] = 1;
+            }
+        }
+
+    }
+    console.log("freq is", freq, "freq2 is", freq2
+    )
+    for (let i = 0; i < Object.keys(freq).length; i++) {
+        console.log(Object.values(freq)[i])
+        if (Object.values(freq)[i] == Object.values(freq2)[i] && Object.keys(freq)[i] == Object.keys(freq2)[i]) {
+            console.log(`letter matches`)
+        } else {
             return false
         }
     }
     return true
 }
 
-console.log(canConstruct("aa", "aab"))
+console.log(canConstruct("aab", "baa"))
