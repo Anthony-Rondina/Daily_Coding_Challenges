@@ -3,8 +3,8 @@
 // Each letter in magazine can only be used once in ransomNote.
 
 const canConstruct = (ransomNote, magazine) => {
-    let note = ransomNote.split('')
-    let mag = magazine.split('')
+    let note = ransomNote.split('').sort()
+    let mag = magazine.split('').sort()
     let longest = ''
     if (note.length > mag.length) {
         longest = note.length
@@ -35,12 +35,22 @@ const canConstruct = (ransomNote, magazine) => {
         }
 
     }
-    console.log("freq is", freq, "freq2 is", freq2
-    )
+    // console.log("freq is", freq, "freq2 is", freq2
+    // )
     for (let i = 0; i < Object.keys(freq).length; i++) {
-        console.log(Object.values(freq)[i])
+        // console.log(`first is ${Object.keys(freq)[i]} Second is ${Object.keys(freq2)[i]}`)
+        if (Object.keys(freq)[i] !== Object.keys(freq2)[i]) {
+            let key = Object.keys(freq2)[i]
+            delete freq2[key]
+            i--
+        }
+    }
+    // console.log("NEXT PASS", "freq is", freq, "freq2 is", freq2
+    // )
+    for (let i = 0; i < Object.keys(freq).length; i++) {
+        // console.log(Object.values(freq)[i])
         if (Object.values(freq)[i] == Object.values(freq2)[i] && Object.keys(freq)[i] == Object.keys(freq2)[i]) {
-            console.log(`letter matches`)
+            // console.log(`letter matches`)
         } else {
             return false
         }
@@ -48,4 +58,5 @@ const canConstruct = (ransomNote, magazine) => {
     return true
 }
 
-console.log(canConstruct("aab", "baa"))
+console.log(canConstruct("bg",
+    "efjbdfbdgfjhhaiigfhbaejahgfbbgbjagbddfgdiaigdadhcfcj"))
