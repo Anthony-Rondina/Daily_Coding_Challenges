@@ -3,3 +3,18 @@
 // Specifically, ans is the concatenation of two nums arrays.
 
 // Return the array ans.
+
+const getConcatenation = (nums) => {
+    let ans = []
+    let n = nums.length
+
+    for (let i = 0; i < 2; i++) {
+        for (let i = 0; i < n; i++) {
+            ans.push(nums[i])
+        }
+    }
+
+    return ans
+}
+
+console.log(getConcatenation([1, 3, 2, 1]))
