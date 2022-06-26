@@ -9,7 +9,18 @@ const reverseStr = (s, k) => {
         return s.split('').reverse().join('')
     }
     if (s.length < 2000 && s.length >= k) {
+        for (let i = 0; i < k; i++) {
+            let letter = arr[i]
+            reverse.push(letter)
+        }
 
+        for (let i = 0; i < k; i++) {
+            arr.shift()
+        }
+        arr.join('')
+        reverse.reverse().join('')
+        let result = reverse.concat(arr).join('')
+        return result
     }
     for (let i = 0; i < k; i++) {
         let letter = arr[i]
@@ -19,14 +30,11 @@ const reverseStr = (s, k) => {
     for (let i = 0; i < k; i++) {
         arr.shift()
     }
-    reverse.reverse()
-    let result = reverse.concat(arr)
-    console.log(result)
-
-
-
-
-
+    arr.join('')
+    reverse.reverse().join('')
+    let result = reverse.concat(arr).join('')
+    return result.join('')
 };
 
-console.log(reverseStr("abcdefg", 3))
+console.log(reverseStr("abcdefg",
+    2))

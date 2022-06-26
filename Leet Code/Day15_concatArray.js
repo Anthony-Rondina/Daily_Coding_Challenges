@@ -13,7 +13,6 @@ const getConcatenation = (nums) => {
             ans.push(nums[i])
         }
     }
-
     return ans
 }
 
