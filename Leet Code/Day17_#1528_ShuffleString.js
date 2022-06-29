@@ -3,8 +3,11 @@
 // Return the shuffled string.
 
 const restoreString = (s, indicies) => {
+    //split string into array
     let sorted = s.split('')
+    //loop through array
     for (let i = 0; i < s.length; i++) {
+        //the section of the array should equal the letter with the matching value
         sorted[indicies[i]] = s[i]
     }
     return sorted.join('')
