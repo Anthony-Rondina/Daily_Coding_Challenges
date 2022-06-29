@@ -3,10 +3,11 @@
 // Return the shuffled string.
 
 const restoreString = (s, indicies) => {
+    let sorted = s.split('')
     for (let i = 0; i < s.length; i++) {
-
+        sorted[indicies[i]] = s[i]
     }
-
+    return sorted.join('')
 }
 
 console.log(restoreString("codeleet", [4, 5, 6, 7, 0, 2, 1, 3]))
