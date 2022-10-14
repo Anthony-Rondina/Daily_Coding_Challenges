@@ -5,10 +5,13 @@
 const pairs = (nums) => {
     let goodPairs = 0
     for (let i = 0; i < nums.length; i++) {
-        if (nums[0] == nums[i + 1]) {
-            console.log(`${nums[0]} = ${nums[i + 1]}`)
-            goodPairs++
+        for (let j = i + 1; j < nums.length; j++) {
+            if (nums[0] == nums[j] && i < j) {
+                console.log(`${nums[0]} = ${nums[j]}`)
+                goodPairs++
+            }
         }
+
     }
     return goodPairs
 }
