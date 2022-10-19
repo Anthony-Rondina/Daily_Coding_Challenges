@@ -13,6 +13,7 @@ const pairs = (nums) => {
         }
 
     }
+    //return result
     return goodPairs
 }
 
